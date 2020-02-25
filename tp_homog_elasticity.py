@@ -27,14 +27,13 @@ dx          = Measure('dx', domain=mesh, subdomain_data=subdomains)
 volume      = 1
 
 # Material parameters definition: we call a custom function that will create discontinuous functions (lmbda, mu) defined on subdomains
-E           = np.array([10000, 500000])                                         
-nu          = np.array([0.45, 0.1])
+E           = np.array([10000, 10000])                                         
+nu          = np.array([0.3, 0.3])
 lmbda, mu   = cpa.AssignSubPropertiesLame(mesh, subdomains, E, nu)
 
 # u and v are vector valued. Hence we create a suitable function space
 Ve          = VectorElement("CG", mesh.ufl_cell(), 2)
-V           = FunctionSpace(mesh, Ve, constrained_domain=cbc.Periodic_LR() )
-# V           = FunctionSpace(mesh, Ve)
+V           = FunctionSpace(mesh, Ve)
 u           = TrialFunction(V)
 v           = TestFunction(V)
 
