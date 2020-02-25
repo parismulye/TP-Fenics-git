@@ -1,0 +1,10 @@
+*.pyc
+*.rpy
+*.log
+*.vtk
+*.csv
+*.msh
+*.xml
+*.xdmf
+*.pvd
+mesh_files/
