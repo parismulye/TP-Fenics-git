@@ -23,7 +23,7 @@ def OpenGMSHGeom():
         print ("Creation of the mesh directory %s failed. Maybe it already exists..." % dir_path)
     else:
         print ("Successfully created the mesh directory %s " % dir_path)
-    os.system('gmsh {}.geo -2 -o mesh_files/{}/{}.msh -v 3'.format(fname, fname, fname))
+    os.system('gmsh {}.geo -format msh2 -2 -o mesh_files/{}/{}.msh -v 3'.format(fname, fname, fname))
     os.chdir('mesh_files/{}/'.format(fname))
     subprocess.run(['dolfin-convert', '{}.msh'.format(fname), '{}.xml'.format(fname)], stdout=subprocess.DEVNULL)
     return fname
