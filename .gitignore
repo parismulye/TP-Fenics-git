@@ -8,3 +8,4 @@
 *.xdmf
 *.pvd
 mesh_files/
+.pyvenv
